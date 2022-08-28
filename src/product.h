@@ -1,12 +1,21 @@
+#ifndef TIMHELP_PRODUCT_T_H
+#define TIMHELP_PRODUCT_T_H
+
 #pragma once
 
-#include "coffeeOS.h"
+#include <string>
 
-class Product {
+class product {
 public:
-    char **name;
-    int id;
-    int sorting;
-    float price;
-    int counter;
+    int identifier;
+    std::string name;
+    double price;
+
+    product(int, std::string, double);
+
+    std::string toString() const;
+    void printData() const;
 };
+
+
+#endif //TIMHELP_PRODUCT_T_H

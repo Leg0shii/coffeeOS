@@ -5,18 +5,16 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(src)
 
-add_executable(coffeeOS
+add_executable(TimHelp
         src/main.cpp
-        src/cli.cpp
-        src/cli.h
-        src/cli_cmd.cpp
-        src/coffeeOS.cpp
         src/coffeeOS.h
-        src/config.cpp
-        src/config.h
+        src/coffeeOS.cpp
         src/my_config.h
-        src/menu.cpp
-        src/menu.h
         src/user.h
+        src/user.cpp
         src/product.h
-        src/transaction.h)
+        src/product.cpp
+        src/my_menu.h
+        src/my_menu.cpp
+        src/my_manager.h
+        src/my_manager.cpp)

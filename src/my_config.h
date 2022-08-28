@@ -1,7 +1,5 @@
 #pragma once
 
-//#define ENABLE_WIFI
-
 #define MY_CONFIG
 
 #ifdef MY_CONFIG
