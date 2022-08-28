@@ -7,7 +7,8 @@
 
 class user {
 public:
-    int nfcIdentifier;
+    int identifier;
+    std::string nfcIdentifier;
     std::string firstName;
     std::string lastName;
 
@@ -16,6 +17,8 @@ public:
     void resetAmount();
     void printData() const;
     std::string toString() const;
+    void initAmount(double); // only for init on reboot!! change is not saved in mem
+    double getAmount();
 
 private:
     double amount = 0;

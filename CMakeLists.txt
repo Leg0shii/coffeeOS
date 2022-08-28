@@ -17,4 +17,6 @@ add_executable(TimHelp
         src/my_menu.h
         src/my_menu.cpp
         src/my_manager.h
-        src/my_manager.cpp)
+        src/my_manager.cpp
+        src/saver.cpp
+        src/saver.h)

@@ -1,33 +1,34 @@
 #pragma once
 
 #ifndef UNTITLED_MENU_H
-#define UNTITLED_MENU_H
-
-static bool temp_turn;                              // force stop after each turn: one turn click -> one new product
-static int menu_state = 0;                          // the selected menu item
-static time_t time_stamp = time(nullptr);     // after 10s go back to home screen
-static bool select_mode;                            // true when user is selecting product (for 10s)
-static bool clicked;                                // true when user clicks the turn wheel (for 10s)
+#define UNTITLED_MENU_H                              // true when user clicks the turn wheel (for 10s)
 
 class my_menu {
 public:
-    static void setup();
 
-    static void onRotateEvent();
-    static void onLeftEvent();
-    static void onRightEvent();
-    static void onClickEvent();
+    void setup();
+    void exitMenu();
 
-    static int getMenuState();
-    static time_t getTimeStamp();
-    static bool isTurned();
-    static bool hasClicked();
-    static void setClicked(bool);
+    void onRotateEvent();
 
-    static void initMenu();
-    static void exitMenu();
+    std::string getCurrentProduct() const;
 
-    static std::string getCurrentProduct();
+    int getMenuState() const;
+    time_t getTimeStamp() const;
+    bool hasClicked() const;
+    bool isTurned() const;
+    void setClicked(bool);
+
+private:
+    bool temp_turn;              // force stop after each turn: one turn click -> one new product
+    int menu_state;              // the selected menu item
+    time_t time_stamp;           // after 10s go back to home screen
+    bool select_mode;            // true when user is selecting product (for 10s)
+    bool clicked;                // true when user has selected product (for 10s)
+
+    void onLeftEvent();
+    void onRightEvent();
+    void onClickEvent();
 };
 
 

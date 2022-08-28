@@ -1,20 +1,21 @@
 
-#include "unordered_map"
+#include <unordered_map>
+
+#include "coffeeOS.h"
+
+#include "my_manager.h"
 #include "product.h"
 #include "user.h"
-#include "my_manager.h"
 
 void my_manager::loadUsers() {
-    bool initialised = true;
-    if (initialised) {
-        user_list.insert({0, user(0, "Tim", "Pruess", 0.0)});
-        user_list.insert({1, user(1, "Olaf", "nn", 0.0)});
-        user_list.insert({2, user(2, "Holger", "nn", 0.0)});
-        user_list.insert({3, user(3, "Markus", "nn", 0.0)});
-        user_list.insert({4, user(4, "Ronald", "nn", 0.0)});
-    } else {
-        // load from memory and fill user_list with people
-    }
+    user_list.insert({0, user(0, "Tim", "Pruess", 0.0)});
+    user_list.insert({1, user(1, "Olaf", "nn", 0.0)});
+    user_list.insert({2, user(2, "Holger", "nn", 0.0)});
+    user_list.insert({3, user(3, "Markus", "nn", 0.0)});
+    user_list.insert({4, user(4, "Ronald", "nn", 0.0)});
+
+    CoffeeOS::instance().mySaver.saveUser(0, 10.25);
+    CoffeeOS::instance().mySaver.setAllUserAmount();
 }
 
 void my_manager::loadProducts() {
@@ -39,15 +40,19 @@ void my_manager::loadProducts() {
     // product_list.insert({6, product(6, "Cappuccino Italiano", 1.75)});
 }
 
+void my_manager::updateUser(int id, double amount) {
+    user_list.at(id).initAmount(amount);
+}
+
 void my_manager::setup() {
     loadProducts();
     loadUsers();
 }
 
-std::unordered_map<int, product> my_manager::getProductList() {
+std::unordered_map<int, product> &my_manager::getProductList() {
     return product_list;
 }
 
-std::unordered_map<int, user> my_manager::getUserList() {
+std::unordered_map<int, user> &my_manager::getUserList() {
     return user_list;
 }

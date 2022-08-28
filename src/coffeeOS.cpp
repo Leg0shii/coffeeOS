@@ -1,13 +1,11 @@
-
 #include <Arduino.h>
 #include <Adafruit_PN532.h>
 #include <chrono>
 #include <unordered_map>
 
 #include "coffeeOS.h"
+
 #include "my_config.h"
-#include "my_manager.h"
-#include "my_menu.h"
 
 #include "product.h"
 
@@ -71,9 +69,7 @@ void CoffeeOS::startUpScreen() {
 
 void CoffeeOS::setup() {
 
-#ifdef DEBUG
-	Serial.begin(115200);
-#endif
+    Serial.begin(115200);
 
     rotaryEncoder_init();
 	display_init();
@@ -81,25 +77,29 @@ void CoffeeOS::setup() {
 
 	startUpScreen();
 
-    my_menu::setup();
-    my_manager::setup();
+    mySaver.saverInit();
+    myMenu.setup();
+    myManager.setup();
+
+    user u = myManager.getUserList().at(0);
+    Serial.print(("User: " + u.firstName + "; To pay: " + std::to_string(u.getAmount())).c_str());
 
 }
 
 void CoffeeOS::loop() {
-    std::string prev_prod_name = my_menu::getCurrentProduct();
-    my_menu::onRotateEvent();
+    std::string prev_prod_name = myMenu.getCurrentProduct();
+    myMenu.onRotateEvent();
 
-    if ((std::time(nullptr) - my_menu::getTimeStamp()) > 10) {
+    if ((std::time(nullptr) - myMenu.getTimeStamp()) > 10) {
         if (reset) return; // check if start up was already drawn
 
-        my_menu::exitMenu();
+        myMenu.exitMenu();
         startUpScreen();
 
         reset = true;
     } else {
 
-        std::string curr_prod_name = my_menu::getCurrentProduct();
+        std::string curr_prod_name = myMenu.getCurrentProduct();
         if (prev_prod_name == curr_prod_name) return; // check if current name was already drawn
 
         int xShift = (15 - strlen(curr_prod_name.c_str()));

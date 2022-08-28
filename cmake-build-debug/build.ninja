@@ -91,6 +91,13 @@ build CMakeFiles/TimHelp.dir/src/my_manager.cpp.obj: CXX_COMPILER__TimHelp_Debug
   OBJECT_DIR = CMakeFiles\TimHelp.dir
   OBJECT_FILE_DIR = CMakeFiles\TimHelp.dir\src
 
+build CMakeFiles/TimHelp.dir/src/saver.cpp.obj: CXX_COMPILER__TimHelp_Debug C$:/Users/supid/CLionProjects/coffeeOS-fork/src/saver.cpp || cmake_object_order_depends_target_TimHelp
+  DEP_FILE = CMakeFiles\TimHelp.dir\src\saver.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -IC:/Users/supid/CLionProjects/coffeeOS-fork/src
+  OBJECT_DIR = CMakeFiles\TimHelp.dir
+  OBJECT_FILE_DIR = CMakeFiles\TimHelp.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TimHelp
@@ -99,7 +106,7 @@ build CMakeFiles/TimHelp.dir/src/my_manager.cpp.obj: CXX_COMPILER__TimHelp_Debug
 #############################################
 # Link the executable TimHelp.exe
 
-build TimHelp.exe: CXX_EXECUTABLE_LINKER__TimHelp_Debug CMakeFiles/TimHelp.dir/src/main.cpp.obj CMakeFiles/TimHelp.dir/src/coffeeOS.cpp.obj CMakeFiles/TimHelp.dir/src/user.cpp.obj CMakeFiles/TimHelp.dir/src/product.cpp.obj CMakeFiles/TimHelp.dir/src/my_menu.cpp.obj CMakeFiles/TimHelp.dir/src/my_manager.cpp.obj
+build TimHelp.exe: CXX_EXECUTABLE_LINKER__TimHelp_Debug CMakeFiles/TimHelp.dir/src/main.cpp.obj CMakeFiles/TimHelp.dir/src/coffeeOS.cpp.obj CMakeFiles/TimHelp.dir/src/user.cpp.obj CMakeFiles/TimHelp.dir/src/product.cpp.obj CMakeFiles/TimHelp.dir/src/my_menu.cpp.obj CMakeFiles/TimHelp.dir/src/my_manager.cpp.obj CMakeFiles/TimHelp.dir/src/saver.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TimHelp.dir

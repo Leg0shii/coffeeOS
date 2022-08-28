@@ -1,6 +1,7 @@
 
-#include "product.h"
 #include <iostream>
+
+#include "product.h"
 
 // p:id;name;price
 product::product(int identifier, std::string name, double price){
