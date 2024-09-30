@@ -1,1 +1,1 @@
-# T2000 Praxisarbeit
+Find updated README [here](https://github.com/SlendGamer/coffeeOS).
